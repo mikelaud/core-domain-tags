@@ -6,7 +6,6 @@ import mikelaud.core.types.StringType;
 
 public class TagsItem {
 
-	private final String RELATIVE_PATH;
 	private final Tag[] TAGS;
 	
 	private Tag[] createDefaultPredefinedTags() {
@@ -28,12 +27,10 @@ public class TagsItem {
 	}
 	
 	public TagsItem(Tag[] aTags, String aRelativePath) {
-		RELATIVE_PATH = aRelativePath;
 		TAGS = aTags;
 	}
 
 	public TagsItem(String aId, String aName, String aTitle, String aDescription) {
-		RELATIVE_PATH = StringType.empty();
 		TAGS = createDefaultPredefinedTags();
 		setPredefinedTagValue(PredefinedTagType.Id, aId);
 		setPredefinedTagValue(PredefinedTagType.Name, aName);
@@ -41,7 +38,6 @@ public class TagsItem {
 		setPredefinedTagValue(PredefinedTagType.Description, aDescription);
 	}
 
-	public String getRelativePath() { return RELATIVE_PATH; }
 	public Tag[] getTags() { return TAGS; }
 	
 	public String getId() { return getPredefinedTagValue(PredefinedTagType.Id); }
